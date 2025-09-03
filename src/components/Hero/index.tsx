@@ -32,7 +32,7 @@ const Hero = () => {
               strings: ["Welcome to My Portfolio", "Discover My Projects", "Let's Build Somethings"],
               autoStart: true,
               loop: true,
-              delay: 100,
+              delay: 120,
             }}
           />
         </h1>
