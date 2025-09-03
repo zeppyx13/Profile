@@ -1,86 +1,87 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-8 w-full bottom-0">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-black text-gray-300 py-12 w-full">
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Grid Layout */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-4 gap-10"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
           {/* About Section */}
           <div>
-            <h2 className="text-lg font-bold uppercase mb-4 poppins-bold">
-              About Robustica
+            <h2 className="text-2xl font-extrabold mb-4 text-white tracking-wide">
+              GungNanda<span className="text-orange-500">.com</span>
             </h2>
-            <p className="text-md leading-6 assistant-normal">
-              Robustica is a coffee shop that provides the best coffee beans
-              from Bali for the world. We have been serving the best coffee
-              since 2023. Our coffee beans are sourced from the best coffee
-              plantations in Bali. We have a wide variety of coffee beans that
-              you can choose from. Visit us today and experience the best coffee
-              in Bali.
+            <p className="text-sm leading-6 text-gray-400">
+              GungNanda.com adalah website pribadi yang menampilkan portofolio
+              dan proyek-proyek Gung Nanda, seorang developer yang penuh
+              semangat dan pecinta teknologi.
             </p>
           </div>
 
           {/* Quick Links Section */}
           <div>
-            <h2 className="text-lg font-bold uppercase mb-4 poppins-bold">
+            <h2 className="text-lg font-semibold uppercase mb-4 text-orange-400">
               Quick Links
             </h2>
-            <ul className="space-y-2 text-md assistant-normal">
+            <ul className="space-y-3 text-sm">
               <li>
-                <a href="./" className="hover:underline">
-                  Home
+                <a
+                  href="./"
+                  className="hover:text-orange-400 transition-colors duration-300"
+                >
+                  About
                 </a>
               </li>
               <li>
-                <a href="./shop" className="hover:underline">
-                  Shop
+                <a
+                  href="./shop"
+                  className="hover:text-orange-400 transition-colors duration-300"
+                >
+                  Portfolio
                 </a>
               </li>
               <li>
-                <a href="./about" className="hover:underline">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="./dropship" className="hover:underline">
-                  Dropship
-                </a>
-              </li>
-              <li>
-                <a href="./contact" className="hover:underline">
-                  Contact Us
+                <a
+                  href="./about"
+                  className="hover:text-orange-400 transition-colors duration-300"
+                >
+                  Contact
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Our Shop Section */}
+          {/* Projects Section */}
           <div>
-            <h2 className="text-lg font-bold uppercase mb-4 poppins-bold">
-              Our Shop
+            <h2 className="text-lg font-semibold uppercase mb-4 text-orange-400">
+              My Projects
             </h2>
-            <ul className="space-y-2 text-md">
+            <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href="https://Robustica.gungnanda.com"
-                  target="blanks_"
-                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-400 transition-colors duration-300"
                 >
-                  Website
-                </a>
-              </li>
-              <li>
-                <a href="#shopee" className="hover:underline">
-                  Shopee
+                  Robustica
                 </a>
               </li>
               <li>
                 <a
-                  href="#tokopedia"
-                  target="blanks_"
-                  className="hover:underline"
+                  href="https://NongkiYok.gungnanda.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-400 transition-colors duration-300"
                 >
-                  Tokopedia
+                  Nongki-Yok
                 </a>
               </li>
             </ul>
@@ -88,50 +89,62 @@ function Footer() {
 
           {/* Contact Info Section */}
           <div>
-            <h2 className="text-lg font-bold uppercase mb-4 poppins-bold">
+            <h2 className="text-lg font-semibold uppercase mb-4 text-orange-400">
               Contact Info
             </h2>
-            <ul className="space-y-2 text-md assistant-normal">
+            <ul className="space-y-3 text-sm">
               <li>
-                <span className="font-bold">Alamat Kami:</span> <br />
-                Jl. Nangka Utara 1 No. 1, Denpasar, Bali
-              </li>
-              <li>
-                <span className="font-bold">Phone:</span>{" "}
-                <a href="tel:+62315618880" className="hover:underline">
-                  +62 315618880
-                </a>
-              </li>
-              <li>
-                <span className="font-bold">No. Telp:</span>{" "}
-                <a href="tel:0315618880" className="hover:underline">
-                  031 5618880
-                </a>
-              </li>
-              <li>
-                <span className="font-bold">Email:</span>{" "}
+                <span className="font-bold text-white">Phone:</span>{" "}
                 <a
-                  href="mailto:Contact@robustica.shop"
-                  className="hover:underline"
+                  href="tel:+6282146011946"
+                  className="hover:text-orange-400 transition-colors duration-300"
                 >
-                  Contact@robustica.shop
+                  +62 821 4601 1946
                 </a>
               </li>
               <li>
-                <span className="font-bold">Website:</span>{" "}
-                <a href="https://Robustica.shop/" className="hover:underline">
-                  https://Robustica.shop/
+                <span className="font-bold text-white">Email:</span>{" "}
+                <a
+                  href="mailto:contact@gungnanda.com"
+                  className="hover:text-orange-400 transition-colors duration-300"
+                >
+                  contact@gungnanda.com
+                </a>
+              </li>
+              <li>
+                <span className="font-bold text-white">Website:</span>{" "}
+                <a
+                  href="https://gungnanda.com/"
+                  className="hover:text-orange-400 transition-colors duration-300"
+                >
+                  gungnanda.com
                 </a>
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Divider */}
+        <div className="mt-10 border-t border-gray-700" />
 
         {/* Copyright Section */}
-        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm assistant-normal">
-          <p>&copy; {new Date().getFullYear()} Gung Nanda. All Rights Reserved.</p>
-        </div>
+        <motion.div
+          className="mt-6 text-center text-sm text-gray-500"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          <p>
+            &copy; {new Date().getFullYear()}{" "}
+            <span className="text-white font-semibold">Gung Nanda</span>. All
+            Rights Reserved.
+          </p>
+        </motion.div>
       </div>
+
+      {/* Background Glow Effect */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-orange-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-600 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"></div>
     </footer>
   );
 }

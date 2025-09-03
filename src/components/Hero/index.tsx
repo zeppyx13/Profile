@@ -2,7 +2,7 @@
 import Image from "next/image";
 import TypewriterComponent from "typewriter-effect";
 import { motion } from "framer-motion";
-
+import Link from "next/link";
 const Hero = () => {
   return (
     <section className="relative flex items-center justify-center h-screen overflow-hidden">
@@ -15,11 +15,7 @@ const Hero = () => {
         priority
         className="scale-105 transition-transform duration-700 hover:scale-110"
       />
-
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
-
-      {/* Content */}
       <motion.div
         className="relative z-10 text-center text-white px-6"
         initial={{ opacity: 0, y: 50 }}
@@ -41,12 +37,11 @@ const Hero = () => {
           Explore my journey as a developer and discover the skills and
           projects I’ve built along the way.
         </p>
-
         {/* CTA Buttons */}
         <div className="flex justify-center gap-4">
           <motion.a
-            href="#projects"
-            className="px-6 py-3 rounded-full bg-orange-500 text-white text-lg font-semibold hover:bg-orange-600 transition"
+            href="/Portfolio"
+            className="px-6 py-3 rounded-full bg-indigo-900 text-white text-lg font-semibold hover:bg-indigo-950 transition"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -63,7 +58,6 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Floating Elements */}
       <motion.div
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white opacity-80"
         animate={{ y: [0, -10, 0] }}
