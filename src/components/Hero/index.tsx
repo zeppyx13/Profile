@@ -1,9 +1,23 @@
 "use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import TypewriterComponent from "typewriter-effect";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+
 const Hero = () => {
+  const [showScrollDown, setShowScrollDown] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setShowScrollDown(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="relative flex items-center justify-center h-screen overflow-hidden">
       {/* Background Image */}
@@ -15,7 +29,11 @@ const Hero = () => {
         priority
         className="scale-105 transition-transform duration-700 hover:scale-110"
       />
+
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+
+      {/* Hero Content */}
       <motion.div
         className="relative z-10 text-center text-white px-6"
         initial={{ opacity: 0, y: 50 }}
@@ -25,7 +43,11 @@ const Hero = () => {
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
           <TypewriterComponent
             options={{
-              strings: ["Welcome to My Portfolio", "Discover My Projects", "Let's Build Somethings"],
+              strings: [
+                "Welcome to My Portfolio",
+                "Discover My Projects",
+                "Let's Build Something",
+              ],
               autoStart: true,
               loop: true,
               delay: 120,
@@ -34,9 +56,10 @@ const Hero = () => {
         </h1>
 
         <p className="text-lg md:text-xl max-w-xl mx-auto mb-6 text-gray-200">
-          Explore my journey as a developer and discover the skills and
-          projects I’ve built along the way.
+          Explore my journey as a developer and discover the skills and projects
+          I’ve built along the way.
         </p>
+
         {/* CTA Buttons */}
         <div className="flex justify-center gap-4">
           <motion.a
@@ -58,14 +81,31 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white opacity-80"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <span className="text-sm">Scroll Down</span>
-        <div className="w-6 h-6 mx-auto mt-2 border-b-2 border-r-2 border-white rotate-45"></div>
-      </motion.div>
+      {/* Scroll Down Indicator */}
+      <AnimatePresence>
+        {showScrollDown && (
+          <motion.div
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white opacity-80"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.span
+              className="text-sm block"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity }}
+            >
+              Scroll Down
+            </motion.span>
+            <motion.div
+              className="w-6 h-6 mx-auto mt-2 border-b-2 border-r-2 border-white rotate-45"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity }}
+            ></motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
