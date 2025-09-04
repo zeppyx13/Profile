@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
 import About from "@/components/About"
 import Footer from "@/components/Footer"
-import React, {useEffect, useState} from "react"
+import PageSection from "@/components/PageSection"
 const Home = () => {
 
   return (
@@ -12,6 +12,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <About />
+      <PageSection />
       <Footer />
     </>
   )
