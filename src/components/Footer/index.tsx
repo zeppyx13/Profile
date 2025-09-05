@@ -15,7 +15,7 @@ function Footer() {
         >
           {/* About Section */}
           <div>
-            <h2 className="text-2xl font-extrabold mb-4 text-white tracking-wide">
+            <h2 className="text-2xl font-extrabold mb-4 text-[#6F4E37] dark:text-[#D4A373] tracking-wide">
               GungNanda<span className="text-orange-500">.com</span>
             </h2>
             <p className="text-sm leading-6 text-gray-400">
