@@ -60,7 +60,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <span className="text-2xl font-extrabold text-[#6F4E37] dark:text-[#D4A373] tracking-wide rubik">
+          <span className="text-2xl font-extrabold text-[#6F4E37] dark:text-[#D4A373] tracking-wide font-rubik">
             GungNanda<span className="text-orange-500">.com</span>
           </span>
         </div>

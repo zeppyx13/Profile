@@ -1,40 +1,9 @@
-/* import font dari Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Rubik:wght@300;400;500;700;900&display=swap");
+/* globals.css */
+
+/* Import Tailwind */
 @import "tailwindcss";
 
-/* rubik */
-.rubik {
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-/* pt-sans */
-.pt-sans-regular {
-  font-family: "PT Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.pt-sans-bold {
-  font-family: "PT Sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.pt-sans-regular-italic {
-  font-family: "PT Sans", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.pt-sans-bold-italic {
-  font-family: "PT Sans", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-/* reset kecil */
+/* Reset kecil */
 * {
   box-sizing: border-box;
   border: 0;
@@ -44,7 +13,7 @@
   scroll-behavior: smooth;
 }
 
-/* theme color */
+/* Theme color */
 :root {
   --background: #fed8b1;
   --foreground: #171717;
@@ -57,4 +26,18 @@
     --foreground: #eeeeee;
     --color-hijau: #4caf50;
   }
+}
+
+/* Default font: PT Sans */
+body {
+  font-family: var(--font-ptsans), sans-serif;
+}
+
+/* Custom class jika ingin pakai Rubik */
+.font-rubik {
+  font-family: var(--font-rubik), sans-serif;
+}
+
+.font-ptsans {
+  font-family: var(--font-ptsans), sans-serif;
 }
