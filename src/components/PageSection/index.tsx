@@ -10,7 +10,7 @@ const PageSection = () => {
         <SectionItem
           title="Portfolio"
           description="Discover my projects that showcase my skills in web development and IoT systems. From dynamic web apps, robotic systems, AI, and smart IoT devices with real-time data integration, each project reflects my creativity, technical expertise, and passion for building innovative, impactful solutions."
-          buttonText="Lihat Portfolio"
+          buttonText="Explore Projects"
           buttonLink="/Portfolio"
           imageSrc="/images/portfolio.png"
         />
