@@ -17,16 +17,15 @@ const About = () => {
           <h2 className="text-4xl lg:text-5xl font-extrabold text-[#6F4E37] leading-tight">
             About <span className="text-[#D4A373]">Me</span>
           </h2>
-          <p className="text-gray-700 text-lg md:text-xl leading-relaxed tracking-wide">
-            Halo! Saya{" "}
-            <span className="font-semibold text-[#6F4E37]">Gung Nanda</span>,
-            seorang pengembang web yang berfokus pada menciptakan pengalaman digital yang
-            menarik dan fungsional. Dengan pengalaman dalam{" "}
-            <span className="font-medium">React.js</span>,{" "}
-            <span className="font-medium">Next.js</span>, dan{" "}
-            <span className="font-medium">Node.js</span>, saya senang memecahkan
-            masalah kompleks serta menghadirkan desain yang modern dan intuitif.
+          <p className="text-gray-700 text-lg md:text-xl leading-relaxed tracking-wide max-w-3xl mx-auto text-center">
+            Hello! I'm <span className="font-bold text-[#6F4E37]">Gung Nanda</span>, a passionate creator who thrives at the intersection of
+            <span className="font-semibold"> Web</span>, <span className="font-semibold">IoT</span>, and
+            <span className="font-semibold"> Machine Learning</span>. I specialize in crafting intelligent, user-focused solutions
+            with a mission to connect people and ideas through meaningful innovation that bridges the gap between technology and real-world needs.
           </p>
+
+
+
         </motion.div>
 
         {/* Image Section */}

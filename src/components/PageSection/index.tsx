@@ -19,7 +19,7 @@ const PageSection = () => {
       <SectionWrapper id="blog">
         <SectionItem
           title="Blog"
-          description="Saya rutin membagikan wawasan, tutorial, dan update terbaru seputar web development dan teknologi. Blog ini adalah tempat saya berbagi tantangan yang dihadapi, solusi yang saya temukan, serta tips untuk developer lain yang ingin meningkatkan keterampilan mereka."
+          description="Explore my blog where I share insights, tutorials, and experiences on web development, IoT, and machine learning. Stay updated with the latest trends, tips, and projects in these exciting fields as I document my journey and knowledge."
           buttonText="Discover Blog's"
           buttonLink="https://blog.gungnanda.com"
           imageSrc="/images/blogging.png"

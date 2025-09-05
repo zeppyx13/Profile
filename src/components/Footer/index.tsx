@@ -20,9 +20,7 @@ function Footer() {
               GungNanda<span className="text-orange-500">.com</span>
             </h2>
             <p className="text-sm leading-6 text-gray-400">
-              GungNanda.com adalah website pribadi yang menampilkan portofolio
-              dan proyek-proyek Gung Nanda, seorang developer yang penuh
-              semangat dan pecinta teknologi.
+              GungNanda.com is the personal website of Gung Nanda, a passionate developer specializing in Web, IoT, and Machine Learning. Explore my portfolio, blog, and projects that showcase my journey in creating innovative solutions that connect technology with real-world needs.
             </p>
           </div>
 
