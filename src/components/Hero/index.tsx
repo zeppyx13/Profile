@@ -20,7 +20,6 @@ const Hero = () => {
 
   return (
     <section className="relative flex items-center justify-center h-screen overflow-hidden" id="home">
-      {/* Background Image */}
       <Image
         src="/images/jumbo.jpg"
         alt="Hero Image"
@@ -36,13 +35,13 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 font-rubik">
           <TypewriterComponent
             options={{
               strings: [
-                "Welcome to My Portfolio",
+                "Welcome to My Website",
+                "A Curated Collection of My Projects.",
                 "Discover My Projects",
-                "Let's Build Something",
               ],
               autoStart: true,
               loop: true,
@@ -52,8 +51,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-lg md:text-xl max-w-xl mx-auto mb-6 text-gray-200">
-          Explore my journey as a developer and discover the skills and projects
-          I’ve built along the way.
+          A showcase of my development journey, from creative concepts to tangible results.
         </p>
 
         <div className="flex justify-center gap-4">
