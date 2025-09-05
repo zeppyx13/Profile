@@ -2,6 +2,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "../Button/Button";
+import showAlert from "../alerts/showAlert";
+
 interface SectionItemProps {
     title: string;
     description: string;
@@ -14,11 +16,22 @@ interface SectionItemProps {
 const SectionItem: React.FC<SectionItemProps> = ({
     title,
     description,
-    buttonText,
-    buttonLink,
     imageSrc,
     reverse = false,
 }) => {
+    // Fungsi handle click khusus untuk Blog
+    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if (title === "Blog") {
+            e.preventDefault();
+            showAlert({
+                title: "Blog Coming Soon",
+                text: "Blog is currently under construction and not available yet.",
+                icon: "warning",
+                confirmButtonText: "Confirm",
+            });
+        }
+    };
+
     return (
         <div
             className={`flex flex-col ${reverse ? "md:flex-row-reverse" : "md:flex-row"
@@ -47,6 +60,8 @@ const SectionItem: React.FC<SectionItemProps> = ({
                     <div className="absolute inset-0 rounded-2xl bg-black/10 group-hover:bg-black/20 transition duration-300" />
                 </motion.div>
             </motion.div>
+
+            {/* Bagian Teks */}
             <motion.div
                 className="w-full md:w-1/2 text-center md:text-left"
                 initial={{ opacity: 0, x: reverse ? -50 : 50 }}
@@ -60,11 +75,14 @@ const SectionItem: React.FC<SectionItemProps> = ({
                 <p className="text-gray-700 text-lg md:text-xl leading-relaxed tracking-wide mb-8">
                     {description}
                 </p>
-                <Button
-                    link={buttonLink}
-                    title={buttonText}
-                    style="inline-block px-8 py-3 rounded-full bg-[#6F4E37] text-white text-lg font-semibold hover:bg-[#5b3e2e] shadow-xl hover:shadow-2xl transition duration-300"
-                />
+
+                {/* Tombol dengan handler klik */}
+                <button
+                    className="inline-block px-8 py-3 rounded-full bg-[#6F4E37] text-white text-lg font-semibold hover:bg-[#5b3e2e] shadow-xl hover:shadow-2xl transition duration-300"
+                    onClick={handleButtonClick}
+                >
+                    Discover Blogs
+                </button>
             </motion.div>
         </div>
     );
