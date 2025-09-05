@@ -19,7 +19,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative flex items-center justify-center h-screen overflow-hidden">
+    <section className="relative flex items-center justify-center h-screen overflow-hidden" id="home">
       {/* Background Image */}
       <Image
         src="/images/jumbo.jpg"

@@ -41,6 +41,9 @@
   outline: 0;
   box-shadow: none;
   text-decoration: none;
+  scrollbar-width: thin;
+  scrollbar-height: thin;
+  scroll-behavior: smooth;
 }
 
 /* theme color */

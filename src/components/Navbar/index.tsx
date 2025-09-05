@@ -3,6 +3,7 @@
 import { Menu, X, Moon, Sun, Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,21 @@ export default function Navbar() {
     setLanguage(language === "EN" ? "ID" : "EN");
   };
 
-  const menuItems = ["HOME", "CATEGORIES", "BLOG", "CONTACT"];
+  // Menu items dengan mapping ke section id
+  const menuItems = [
+    { name: "HOME", href: "home" },
+    { name: "PORTFOLIO", href: "projects" },
+    { name: "BLOG", href: "blog" },
+    { name: "CONTACT", href: "contact" },
+  ];
+
+  // Fungsi untuk smooth scroll
+  const handleScrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <header
@@ -53,16 +68,16 @@ export default function Navbar() {
         {/* Menu Desktop */}
         <nav className="hidden md:flex gap-8 text-sm font-semibold text-gray-700 dark:text-gray-200">
           {menuItems.map((item) => (
-            <a
-              key={item}
-              href={`/${item === "HOME" ? "" : item.toLowerCase()}`}
+            <button
+              key={item.name}
+              onClick={() => handleScrollToSection(item.href)}
               className="relative hover:text-[#6F4E37] dark:hover:text-[#D4A373] transition-colors duration-300
                 after:content-[''] after:absolute after:-bottom-1 after:left-0 
                 after:w-0 after:h-[2px] after:bg-[#6F4E37] dark:after:bg-[#D4A373]
                 after:transition-all after:duration-300 hover:after:w-full"
             >
-              {item}
-            </a>
+              {item.name}
+            </button>
           ))}
         </nav>
 
@@ -116,17 +131,19 @@ export default function Navbar() {
           >
             <nav className="flex flex-col gap-4 px-6 py-6 text-gray-700 dark:text-gray-200 font-semibold">
               {menuItems.map((item) => (
-                <a
-                  key={item}
-                  href={`/${item === "HOME" ? "" : item.toLowerCase()}`}
-                  className="relative hover:text-[#6F4E37] dark:hover:text-[#D4A373] transition-colors duration-300
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    handleScrollToSection(item.href);
+                    setIsOpen(false);
+                  }}
+                  className="relative text-left hover:text-[#6F4E37] dark:hover:text-[#D4A373] transition-colors duration-300
                     after:content-[''] after:absolute after:-bottom-1 after:left-0 
                     after:w-0 after:h-[2px] after:bg-[#6F4E37] dark:after:bg-[#D4A373]
                     after:transition-all after:duration-300 hover:after:w-full"
-                  onClick={() => setIsOpen(false)}
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </button>
               ))}
             </nav>
           </motion.div>

@@ -1,10 +1,11 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <footer className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-black text-gray-300 py-12 w-full">
+    <footer className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-black text-gray-300 py-12 w-full" id="contact">
       <div className="container mx-auto px-6 relative z-10">
         {/* Grid Layout */}
         <motion.div
@@ -32,28 +33,28 @@ function Footer() {
             </h2>
             <ul className="space-y-3 text-sm">
               <li>
-                <a
-                  href="./"
+                <Link
+                  href="#About"
                   className="hover:text-orange-400 transition-colors duration-300"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="./shop"
+                <Link
+                  href="#projects"
                   className="hover:text-orange-400 transition-colors duration-300"
                 >
                   Portfolio
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="./about"
+                <Link
+                  href="#blog"
                   className="hover:text-orange-400 transition-colors duration-300"
                 >
-                  Contact
-                </a>
+                  Blog
+                </Link>
               </li>
             </ul>
           </div>
@@ -65,24 +66,24 @@ function Footer() {
             </h2>
             <ul className="space-y-3 text-sm">
               <li>
-                <a
+                <Link
                   href="https://Robustica.gungnanda.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-orange-400 transition-colors duration-300"
                 >
                   Robustica
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="https://NongkiYok.gungnanda.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-orange-400 transition-colors duration-300"
                 >
                   Nongki-Yok
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -95,30 +96,33 @@ function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <span className="font-bold text-white">Phone:</span>{" "}
-                <a
+                <Link
+                  target="_blank"
                   href="tel:+6282146011946"
                   className="hover:text-orange-400 transition-colors duration-300"
                 >
                   +62 821 4601 1946
-                </a>
+                </Link>
               </li>
               <li>
                 <span className="font-bold text-white">Email:</span>{" "}
-                <a
+                <Link
+                  target="_blank"
                   href="mailto:contact@gungnanda.com"
                   className="hover:text-orange-400 transition-colors duration-300"
                 >
                   contact@gungnanda.com
-                </a>
+                </Link>
               </li>
               <li>
                 <span className="font-bold text-white">Website:</span>{" "}
-                <a
+                <Link
+                  target="_blank"
                   href="https://gungnanda.com/"
                   className="hover:text-orange-400 transition-colors duration-300"
                 >
                   gungnanda.com
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
