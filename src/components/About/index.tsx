@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100 overflow-hidden">
+    <section className="relative py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12">
 
         {/* Text Section */}
@@ -40,7 +40,8 @@ const About = () => {
             <Image
               src="/images/Logo.jpg"
               alt="Profile"
-              fill
+              width={450}
+              height={450}
               className="object-cover rounded-full shadow-2xl border-4 border-[#D4A373]"
               priority
             />
