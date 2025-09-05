@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import TypewriterComponent from "typewriter-effect";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Button from "@/Partials/Button/Button";
 const Hero = () => {
   const [showScrollDown, setShowScrollDown] = useState(true);
 
@@ -29,11 +29,7 @@ const Hero = () => {
         priority
         className="scale-105 transition-transform duration-700 hover:scale-110"
       />
-
-      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
-
-      {/* Hero Content */}
       <motion.div
         className="relative z-10 text-center text-white px-6"
         initial={{ opacity: 0, y: 50 }}
@@ -60,28 +56,15 @@ const Hero = () => {
           I’ve built along the way.
         </p>
 
-        {/* CTA Buttons */}
         <div className="flex justify-center gap-4">
-          <motion.a
-            href="/Portfolio"
-            className="px-6 py-3 rounded-full bg-indigo-900 text-white text-lg font-semibold hover:bg-indigo-950 transition"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Explore Projects
-          </motion.a>
-          <motion.a
-            href="#contact"
-            className="px-6 py-3 rounded-full bg-transparent border border-white text-white text-lg font-semibold hover:bg-white hover:text-black transition"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Me
-          </motion.a>
+          <Button
+            link="#projects"
+            title="Explore Projects"
+            style="rounded-full bg-indigo-900 text-white text-lg font-semibold hover:bg-indigo-950 duration-300"
+          />
         </div>
       </motion.div>
 
-      {/* Scroll Down Indicator */}
       <AnimatePresence>
         {showScrollDown && (
           <motion.div

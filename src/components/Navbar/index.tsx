@@ -38,8 +38,8 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg"
-          : "bg-gradient-to-r from-white via-white/80 to-white/60 dark:from-gray-900 dark:via-gray-800/80 dark:to-gray-900/60"
+        ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg"
+        : "bg-gradient-to-r from-white via-white/80 to-white/60 dark:from-gray-900 dark:via-gray-800/80 dark:to-gray-900/60"
         }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
