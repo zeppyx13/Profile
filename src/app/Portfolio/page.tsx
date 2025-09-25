@@ -72,10 +72,10 @@ const PortfolioHome = () => {
 
           {/* Social Links */}
           <div className="flex justify-center md:justify-start gap-4 text-xl">
-            <a href="#" className="hover:text-red-600"><FaFacebook /></a>
-            <a href="#" className="hover:text-red-600"><FaTwitter /></a>
-            <a href="#" className="hover:text-red-600"><FaInstagram /></a>
-            <a href="#" className="hover:text-red-600"><FaLinkedin /></a>
+            <a href="https://facebook.com" className="hover:text-red-600" title="Facebook" aria-label="Facebook"><FaFacebook /></a>
+            <a href="https://twitter.com" className="hover:text-red-600" title="Twitter" aria-label="Twitter"><FaTwitter /></a>
+            <a href="https://instagram.com" className="hover:text-red-600" title="Instagram" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://linkedin.com" className="hover:text-red-600" title="LinkedIn" aria-label="LinkedIn"><FaLinkedin /></a>
           </div>
 
           {/* Button */}
