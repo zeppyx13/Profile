@@ -35,7 +35,7 @@ export default function TimelineSection() {
 
                 {/* Red line */}
                 <div className="relative ml-8">
-                    <div className="absolute top-0 left-[-13px] w-1 bg-red-600 h-full rounded-full"></div>
+                    <div className="absolute top-0 left-[-14px] w-1 bg-red-600 h-full rounded-full"></div>
 
                     {timeline.map((item, index) => (
                         <motion.div
