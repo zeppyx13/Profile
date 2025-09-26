@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import SkillsSection from "@/Partials/Portfolio/skill";
 import TimelineSection from "@/Partials/Portfolio/timeline";
+import ProjectsSection from "@/Partials/Portfolio/project";
+import ContactSection from "@/Partials/Portfolio/contact";
+import Footer from "@/components/Footer";
 const roles = ["Backend Developer", "Robotics Engineer", "IoT Developer", "AI Enthusiast"];
 
 const PortfolioHome = () => {
@@ -114,6 +117,9 @@ const PortfolioHome = () => {
       </main>
       <SkillsSection />
       <TimelineSection />
+      <ProjectsSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
