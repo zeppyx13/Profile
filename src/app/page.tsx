@@ -4,6 +4,7 @@ import Hero from "@/components/Hero"
 import About from "@/components/About"
 import Footer from "@/components/Footer"
 import PageSection from "@/components/PageSection"
+import ContactSection from "@/components/contact"
 const Home = () => {
 
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Hero />
       <About />
       <PageSection />
+      <ContactSection />
       <Footer />
     </>
   )
