@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import TypewriterComponent from "typewriter-effect";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "@/Partials/Button/Button";
+import Button from "@/components/Button/Button";
 const Hero = () => {
   const [showScrollDown, setShowScrollDown] = useState(true);
 

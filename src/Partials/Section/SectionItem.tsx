@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Button from "../Button/Button";
-import showAlert from "../alerts/showAlert";
+import Button from "@/components/Button/Button";
+import showAlert from "@/components/alerts/showAlert";
 
 interface SectionItemProps {
     title: string;

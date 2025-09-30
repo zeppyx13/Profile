@@ -1,8 +1,8 @@
-// src/components/Navbar/Navbar.tsx
 "use client";
 import { Menu, X, Moon, Sun, Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -10,44 +10,52 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState("EN");
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", !darkMode);
   };
 
-  // Toggle language
   const toggleLanguage = () => {
     setLanguage(language === "EN" ? "ID" : "EN");
   };
 
-  // Menu items dengan mapping ke section id
-  const menuItems = [
+  const isDashboard = pathname.startsWith("/Portfolio");
+
+  const mainMenu = [
     { name: "HOME", href: "home" },
     { name: "PORTFOLIO", href: "projects" },
     { name: "BLOG", href: "blog" },
     { name: "CONTACT", href: "contact" },
   ];
 
-  // Fungsi untuk smooth scroll
+  const portfolioMenu = [
+    { name: "HOME", href: "/" },
+    { name: "SKILLS", href: "skills" },
+    { name: "JOURNEY", href: "journey" },
+    { name: "PROJECTS", href: "projects" },
+    { name: "CONTACT", href: "contact" },
+  ];
+
+  const menuItems = isDashboard ? portfolioMenu : mainMenu;
+
+  const accentColor = isDashboard ? "text-red-600" : "text-white-600";
+  const accentColor2 = isDashboard ? "text-white" : "text-[#6F4E37]";
+  const hoverAccent = isDashboard ? "hover:text-white-600" : "hover:text-[#6F4E37]";
+  const afterAccent = isDashboard
+    ? "after:bg-red-600 dark:after:bg-red-500"
+    : "after:bg-[#6F4E37] dark:after:bg-[#D4A373]";
+
   const handleScrollToSection = (id: string) => {
     const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -60,30 +68,42 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <span className="text-2xl font-extrabold text-[#6F4E37] dark:text-[#D4A373] tracking-wide font-rubik">
-            GungNanda<span className="text-orange-500">.com</span>
+          <span
+            className={`text-2xl font-extrabold tracking-wide font-rubik ${accentColor}`}
+          >
+            GungNanda<span className={`${accentColor2}`}>.com</span>
           </span>
         </div>
 
         {/* Menu Desktop */}
         <nav className="hidden md:flex gap-8 text-sm font-semibold text-gray-700 dark:text-gray-200">
-          {menuItems.map((item) => (
-            <button
-              key={item.name}
-              onClick={() => handleScrollToSection(item.href)}
-              className="relative hover:text-[#6F4E37] dark:hover:text-[#D4A373] transition-colors duration-300
-                after:content-[''] after:absolute after:-bottom-1 after:left-0 
-                after:w-0 after:h-[2px] after:bg-[#6F4E37] dark:after:bg-[#D4A373]
-                after:transition-all after:duration-300 hover:after:w-full"
-            >
-              {item.name}
-            </button>
-          ))}
+          {menuItems.map((item) =>
+            isDashboard && item.name === "HOME" ? (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`relative ${hoverAccent} transition-colors duration-300
+                  after:content-[''] after:absolute after:-bottom-1 after:left-0
+                  after:w-0 after:h-[2px] ${afterAccent}
+                  after:transition-all after:duration-300 hover:after:w-full`}
+              >
+                {item.name}
+              </Link>
+            ) : (
+              <button
+                key={item.name}
+                onClick={() => handleScrollToSection(item.href)}
+                className={`relative ${hoverAccent} transition-colors duration-300
+                  after:content-[''] after:absolute after:-bottom-1 after:left-0
+                  after:w-0 after:h-[2px] ${afterAccent}
+                  after:transition-all after:duration-300 hover:after:w-full`}
+              >
+                {item.name}
+              </button>
+            )
+          )}
         </nav>
-
-        {/* Right Icons */}
         <div className="flex items-center gap-4">
-          {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
             aria-label="Change Language"
@@ -95,7 +115,6 @@ export default function Navbar() {
             {language}
           </span>
 
-          {/* Dark Mode Toggle */}
           <button
             onClick={toggleDarkMode}
             aria-label="Toggle Dark Mode"
@@ -108,7 +127,6 @@ export default function Navbar() {
             )}
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-gray-800 dark:text-gray-200 transition-transform duration-300 hover:scale-110"
             onClick={() => setIsOpen(!isOpen)}
@@ -130,21 +148,35 @@ export default function Navbar() {
             className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-t border-gray-200 dark:border-gray-700"
           >
             <nav className="flex flex-col gap-4 px-6 py-6 text-gray-700 dark:text-gray-200 font-semibold">
-              {menuItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    handleScrollToSection(item.href);
-                    setIsOpen(false);
-                  }}
-                  className="relative text-left hover:text-[#6F4E37] dark:hover:text-[#D4A373] transition-colors duration-300
-                    after:content-[''] after:absolute after:-bottom-1 after:left-0 
-                    after:w-0 after:h-[2px] after:bg-[#6F4E37] dark:after:bg-[#D4A373]
-                    after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {item.name}
-                </button>
-              ))}
+              {menuItems.map((item) =>
+                isDashboard && item.name === "HOME" ? (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`relative text-left ${hoverAccent} transition-colors duration-300
+                      after:content-[''] after:absolute after:-bottom-1 after:left-0
+                      after:w-0 after:h-[2px] ${afterAccent}
+                      after:transition-all after:duration-300 hover:after:w-full`}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.name}
+                    onClick={() => {
+                      handleScrollToSection(item.href);
+                      setIsOpen(false);
+                    }}
+                    className={`relative text-left ${hoverAccent} transition-colors duration-300
+                      after:content-[''] after:absolute after:-bottom-1 after:left-0
+                      after:w-0 after:h-[2px] ${afterAccent}
+                      after:transition-all after:duration-300 hover:after:w-full`}
+                  >
+                    {item.name}
+                  </button>
+                )
+              )}
             </nav>
           </motion.div>
         )}
