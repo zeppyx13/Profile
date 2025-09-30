@@ -47,7 +47,7 @@ export default function Navbar() {
   const menuItems = isDashboard ? portfolioMenu : mainMenu;
 
   const accentColor = isDashboard ? "text-red-600" : "text-white-600";
-  const accentColor2 = isDashboard ? "text-white" : "text-[#6F4E37]";
+  const accentColor2 = isDashboard ? "text-white" : "text-orange-500";
   const hoverAccent = isDashboard ? "hover:text-white-600" : "hover:text-[#6F4E37]";
   const afterAccent = isDashboard
     ? "after:bg-red-600 dark:after:bg-red-500"
@@ -66,7 +66,6 @@ export default function Navbar() {
         }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
         <div className="flex items-center gap-2">
           <span
             className={`text-2xl font-extrabold tracking-wide font-rubik ${accentColor}`}
@@ -74,8 +73,6 @@ export default function Navbar() {
             GungNanda<span className={`${accentColor2}`}>.com</span>
           </span>
         </div>
-
-        {/* Menu Desktop */}
         <nav className="hidden md:flex gap-8 text-sm font-semibold text-gray-700 dark:text-gray-200">
           {menuItems.map((item) =>
             isDashboard && item.name === "HOME" ? (
@@ -136,8 +133,6 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
