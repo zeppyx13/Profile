@@ -1,44 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
-import { apiFetch } from "@/lib/api";
 import ProjectCard from "@/components/card/projectcard";
-
-interface TechStack {
-    IdTechStack: number;
-    TechnologyName: string;
-    TechnologyDescription: string;
-}
-
-interface Project {
-    IdProject: number;
-    ProjectTitle: string;
-    Category: string;
-    ProjectDescription: string;
-    Year: number;
-    Link: string;
-    TechStack: TechStack[];
-    Images?: string;
-}
+import { useProjects } from "@/hooks/useProjects";
 
 export default function ProjectsSection() {
-    const [projects, setProjects] = useState<Project[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                const res = await apiFetch<{ success: boolean; data: Project[] }>("/join/allprojects/");
-                if (res.success && res.data) {
-                    setProjects(res.data);
-                }
-            } catch (err) {
-                console.error("Failed to fetch projects:", err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchProjects();
-    }, []);
+    const { projects, loading, error } = useProjects();
 
     return (
         <section id="projects" className="py-16 bg-gray-900 text-white">
@@ -49,6 +14,8 @@ export default function ProjectsSection() {
 
                 {loading ? (
                     <p className="text-center text-gray-400">Loading projects...</p>
+                ) : error ? (
+                    <p className="text-center text-red-400">{error}</p>
                 ) : projects.length === 0 ? (
                     <p className="text-center text-gray-400">No projects found.</p>
                 ) : (

@@ -1,73 +1,56 @@
 "use client";
-import { useState } from "react";
-import { apiFetch } from "@/lib/api";
-import { showSuccess, showError } from "@/lib/alerts";
+import { useContactForm } from "@/hooks/useContactForm";
 
 const ContactSection = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
-    const [loading, setLoading] = useState(false);
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!name.trim() || !email.trim() || !message.trim()) {
-            showError("Error", "All fields are required!");
-            return;
-        }
-
-        try {
-            setLoading(true);
-            await apiFetch("/Contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message }),
-            });
-
-            showSuccess("Success", "Your message has been sent!");
-            setName("");
-            setEmail("");
-            setMessage("");
-        } catch (err) {
-            console.error("Error sending message:", err);
-            showError("Error", "Failed to send message.");
-        } finally {
-            setLoading(false);
-        }
-    };
+    const {
+        name,
+        setName,
+        email,
+        setEmail,
+        message,
+        setMessage,
+        loading,
+        handleSubmit,
+    } = useContactForm();
 
     return (
-        <section id="contact" className="py-20 bg-gray-900 text-white relative">
-            <div className="max-w-3xl mx-auto px-6 relative z-10">
-                <h2 className="text-3xl font-bold text-center mb-4 text-red-600">
+        <section
+            id="contact"
+            className="relative py-16 sm:py-20 bg-gray-900 text-white overflow-x-hidden"
+        >
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-red-600">
                     Contact Me
                 </h2>
-                <p className="text-center text-gray-400 mb-10">
-                    Feel free to reach out by filling the form below. I’ll get back to you as soon as possible.
+                <p className="text-center text-gray-400 mb-10 text-sm sm:text-base md:text-lg">
+                    Feel free to reach out by filling the form below. I’ll get back to you
+                    as soon as possible.
                 </p>
 
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl p-8 border border-white/10">
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl p-6 sm:p-8 border border-white/10">
                     <form onSubmit={handleSubmit} className="space-y-6">
-                        <div>
-                            <label className="block text-sm font-semibold mb-2">Name</label>
-                            <input
-                                type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                placeholder="Enter your name"
-                                className="w-full px-4 py-3 rounded-lg bg-gray-800/70 border border-gray-700 text-white focus:ring-2 focus:ring-red-600 focus:border-red-600 placeholder-gray-400 transition"
-                            />
-                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label className="block text-sm font-semibold mb-2">Name</label>
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="Enter your name"
+                                    className="w-full px-4 py-3 rounded-lg bg-gray-800/70 border border-gray-700 text-white focus:ring-2 focus:ring-red-600 focus:border-red-600 placeholder-gray-400 transition"
+                                />
+                            </div>
 
-                        <div>
-                            <label className="block text-sm font-semibold mb-2">Email</label>
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email"
-                                className="w-full px-4 py-3 rounded-lg bg-gray-800/70 border border-gray-700 text-white focus:ring-2 focus:ring-red-600 focus:border-red-600 placeholder-gray-400 transition"
-                            />
+                            <div>
+                                <label className="block text-sm font-semibold mb-2">Email</label>
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Enter your email"
+                                    className="w-full px-4 py-3 rounded-lg bg-gray-800/70 border border-gray-700 text-white focus:ring-2 focus:ring-red-600 focus:border-red-600 placeholder-gray-400 transition"
+                                />
+                            </div>
                         </div>
 
                         <div>
@@ -95,10 +78,6 @@ const ContactSection = () => {
                     </form>
                 </div>
             </div>
-
-            {/* Glow efek di belakang */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-600/30 blur-3xl rounded-full"></div>
-            <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-indigo-600/30 blur-3xl rounded-full"></div>
         </section>
     );
 };

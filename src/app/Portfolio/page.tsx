@@ -12,7 +12,7 @@ const PortfolioHomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       <Navbar />
-      <main className="flex-1 mt-16">
+      <main className="flex-1 mt-16 overflow-x-hidden">
         <Hero />
         <SkillsSection />
         <TimelineSection />
