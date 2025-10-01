@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import React from "react";
-import "../css/globals.css";
+import "@/css/globals.css";
 import { Rubik, PT_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
