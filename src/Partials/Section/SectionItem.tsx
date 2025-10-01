@@ -21,7 +21,7 @@ const SectionItem: React.FC<SectionItemProps> = ({
     imageSrc,
     reverse = false,
 }) => {
-    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         if (title === "Blog") {
             e.preventDefault();
             showAlert({
@@ -40,7 +40,7 @@ const SectionItem: React.FC<SectionItemProps> = ({
         >
             <motion.div
                 className="relative w-full md:w-1/2 flex justify-center"
-                initial={{ opacity: 0, x: reverse ? 50 : -50 }}
+                initial={false}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
@@ -61,9 +61,11 @@ const SectionItem: React.FC<SectionItemProps> = ({
                     <div className="absolute inset-0 rounded-2xl bg-black/10 group-hover:bg-black/20 transition duration-300" />
                 </motion.div>
             </motion.div>
+
+            {/* Text Section */}
             <motion.div
                 className="w-full md:w-1/2 text-center md:text-left"
-                initial={{ opacity: 0, x: reverse ? -50 : 50 }}
+                initial={false}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
@@ -74,6 +76,7 @@ const SectionItem: React.FC<SectionItemProps> = ({
                 <p className="text-gray-700 text-lg md:text-xl leading-relaxed tracking-wide mb-8">
                     {description}
                 </p>
+
                 {title === "Blog" ? (
                     <button
                         className="inline-block px-8 py-3 rounded-full bg-[#6F4E37] text-white text-lg font-semibold hover:bg-[#5b3e2e] shadow-xl hover:shadow-2xl transition duration-300"
