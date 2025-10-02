@@ -6,8 +6,6 @@ const About = () => {
   return (
     <section className="relative py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12">
-
-        {/* Text Section */}
         <motion.div
           className="flex-1 space-y-6 text-center lg:text-left"
           initial={{ opacity: 0, x: -50 }}
@@ -23,12 +21,7 @@ const About = () => {
             <span className="font-semibold"> Machine Learning</span>. I specialize in crafting intelligent, user-focused solutions
             with a mission to connect people and ideas through meaningful innovation that bridges the gap between technology and real-world needs.
           </p>
-
-
-
         </motion.div>
-
-        {/* Image Section */}
         <motion.div
           className="flex-1 relative"
           initial={{ opacity: 0, x: 50 }}
@@ -37,7 +30,7 @@ const About = () => {
         >
           <div className="relative w-64 h-64 lg:w-80 lg:h-80 mx-auto">
             <Image
-              src="/images/Logo.jpg"
+              src="/images/Logo.png"
               alt="Profile"
               width={450}
               height={450}
@@ -45,8 +38,6 @@ const About = () => {
               priority
             />
           </div>
-
-          {/* Decorative Elements */}
           <div className="absolute -z-10 top-0 -right-10 w-40 h-40 bg-[#D4A373] opacity-30 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -z-10 bottom-0 -left-10 w-40 h-40 bg-[#6F4E37] opacity-30 rounded-full blur-3xl animate-pulse"></div>
         </motion.div>
