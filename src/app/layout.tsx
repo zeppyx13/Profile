@@ -4,16 +4,17 @@ import "@/css/globals.css";
 import { Rubik, PT_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Gung Nanda | Web Developer, IoT, Machine Learning Enthusiast",
+  title: "Gung Nanda | Web Developer, IoT & Machine Learning Enthusiast",
   description:
-    "Personal website of Gung Nanda. Full-Stack Developer from Bali specializing in Web Development, IoT, Robotic projects, and Machine Learning. Explore portfolio, blog, and contact info.",
+    "Personal website of Gung Nanda – a Full-Stack Developer from Bali specializing in Web Development, IoT, Robotics, and Machine Learning. Explore portfolio, blog, and contact information.",
   keywords: [
     "Gung Nanda",
     "Web Developer Bali",
     "Full-Stack Developer",
-    "IoT Bali",
+    "IoT Developer Bali",
     "Machine Learning Bali",
-    "Personal Portfolio",
+    "Robotics Developer Bali",
+    "Portfolio",
     "Tech Blog",
     "Software Engineer",
   ],
@@ -21,11 +22,12 @@ export const metadata: Metadata = {
   creator: "Gung Nanda",
   publisher: "Gung Nanda",
   metadataBase: new URL("https://gungnanda.com"),
+  themeColor: "#ffffff",
 
   openGraph: {
-    title: "Gung Nanda | Web Developer, IoT, Machine Learning Enthusiast",
+    title: "Gung Nanda | Web Developer, IoT & Machine Learning Enthusiast",
     description:
-      "Discover Gung Nanda personal portfolio, blog, and projects in Web Development, IoT, and Machine Learning. Based in Bali, available for collaboration.",
+      "Explore Gung Nanda’s personal portfolio, blog, and projects in Web Development, IoT, Robotics, and Machine Learning. Based in Bali, available for collaboration.",
     url: "https://gungnanda.com",
     siteName: "Gung Nanda",
     type: "website",
@@ -41,12 +43,11 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/images/ico.ico",
-    shortcut: "/images/ico.ico",
+    icon: "/images/Ico.ico",
+    shortcut: "/images/Ico.ico",
     apple: "/images/Ico.png",
   },
 };
-
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -68,13 +69,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${rubik.variable} ${ptSans.variable}`}
-    >
+    <html lang="en" className={`${rubik.variable} ${ptSans.variable}`}>
       <body
-        suppressHydrationWarning={true}
-        className="bg-[var(--background)] text-[var(--foreground)] font-ptsans"
+        suppressHydrationWarning
+        className="bg-[var(--background)] text-[var(--foreground)] font-sans"
       >
         {children}
       </body>
