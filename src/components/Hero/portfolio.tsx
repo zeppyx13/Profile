@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import SocialLinks from "@/components/Links/SocialLinks";
 import ProfileHex from "@/components/Hero/ProfileHex";
 
-const roles = ["Backend Developer", "Robotics Engineer", "IoT Developer", "AI Enthusiast"];
+const roles = ["Full-Stack Developer", "Robotics Engineer", "IoT Developer", "AI Enthusiast"];
 
 const Hero: React.FC = () => {
     const [currentRole, setCurrentRole] = useState("");
@@ -50,8 +50,7 @@ const Hero: React.FC = () => {
                 <SocialLinks />
 
                 <a
-                    href="/cv.pdf"
-                    download
+                    href="https://drive.google.com/drive/folders/1fUz7elGzCPsmMJKxEGq3Peiwt6VfCbVn?usp=sharing"
                     className="inline-block mt-4 px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold shadow-md transition"
                 >
                     Download CV

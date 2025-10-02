@@ -41,18 +41,28 @@ function Footer() {
             </h2>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link href="#About" className={`transition-colors duration-300 ${hoverAccent}`}>
+                <Link href="/#About" className={`transition-colors duration-300 ${hoverAccent}`}>
                   About
                 </Link>
               </li>
               <li>
-                <Link href="#projects" className={`transition-colors duration-300 ${hoverAccent}`}>
+                <Link href="/#projects" className={`transition-colors duration-300 ${hoverAccent}`}>
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="#blog" className={`transition-colors duration-300 ${hoverAccent}`}>
+                <Link href="/#blog" className={`transition-colors duration-300 ${hoverAccent}`}>
                   Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/Gallery" className={`transition-colors duration-300 ${hoverAccent}`}>
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className={`transition-colors duration-300 ${hoverAccent}`}>
+                  Contact
                 </Link>
               </li>
             </ul>
