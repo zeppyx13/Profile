@@ -5,7 +5,7 @@ import { apiFetch } from "@/lib/api";
 export interface Photo {
   Images: any;
   IdPhoto: number;
-  title: string;
+  Title: string;
   url: string;
 }
 
